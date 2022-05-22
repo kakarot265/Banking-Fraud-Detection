@@ -1,0 +1,31 @@
+<link href="https://fonts.googleapis.com/css?family=B612&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<body class="text-center bg-dark text-light" style="font-family: 'B612', sans-serif;">
+	<div class="container">
+		<img class="img-responsive" src="/static/background.jpg" style="margin: 50px auto 50px auto"> 
+	</div>
+
+	<div class="container" id="input_display">
+		<h2> <u> Input Features of selected random tuple </u> </h3>
+		<h5>
+		{% for col in input_tuple %}
+			 {{col}} = {{ input_tuple[col] }},&ensp;
+			 {% if loop.index % 3 == 0 %}
+			 	<br>
+			 {% endif %} 
+		{% endfor %}
+		</h5>
+	</div>
+
+	<div class="container" style="margin: 20px auto 20px auto;">
+		<h2> <u> Prediction Results </u> </h2> 
+		<h4> Logistic Regression Result : {{lr_prediction}} </h2>
+		<h4> Naive Bayes Result : {{nb_prediction}} </h2>
+		<h4> Random Forest Result : {{rf_prediction}} </h2>
+		<h4> Actual Result : {{y_true}} </h2>
+	</div>
+
+	<a class="btn btn-lg btn-primary" href="{{url_for('home')}}"> Back </a>
+</body>
